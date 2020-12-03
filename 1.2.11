@@ -1,0 +1,30 @@
+Python 3.7.1 (v3.7.1:260ec2c36a, Oct 20 2018, 14:05:16) [MSC v.1915 32 bit (Inte
+l)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import time
+>>> from selenium import webdriver
+>>> driver = webdriver.Chrome()
+
+DevTools listening on ws://127.0.0.1:60697/devtools/browser/be80f13c-d3e3-4a52-a
+2de-bfbd787d8a1a
+[1203/180551.910:ERROR:gl_surface_egl.cc(773)] EGL Driver message (Critical) egl
+Initialize: No available renderers.
+[1203/180551.917:ERROR:gl_surface_egl.cc(1322)] eglInitialize D3D11 failed with
+error EGL_NOT_INITIALIZED, trying next display type
+[1203/180553.143:ERROR:gl_surface_egl.cc(773)] EGL Driver message (Critical) egl
+Initialize: No available renderers.
+[1203/180553.145:ERROR:gl_surface_egl.cc(1322)] eglInitialize D3D9 failed with e
+rror EGL_NOT_INITIALIZED
+[1203/180553.147:ERROR:gl_initializer_win.cc(123)] GLSurfaceEGL::InitializeOneOf
+f failed.
+[1203/180553.315:ERROR:viz_main_impl.cc(150)] Exiting GPU process due to errors
+during initialization
+>>> time.sleep(10)
+>>> driver.get("https://stepik.org/lesson/25969/step/12")
+>>> time.sleep(10)
+>>> textarea = driver.find_element_by_css_selector(".textarea")
+>>> textarea.send_keys("get()")
+>>> submit_button = driver.find_element_by_css_selector(".submit-submission")
+>>> submit_button.click()
+>>> time.sleep(10)
+>>> driver.quit()
